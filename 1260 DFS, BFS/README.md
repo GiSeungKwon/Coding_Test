@@ -119,10 +119,10 @@
         <h2>출처</h2>
     </div>
     <ul>
-        <li>문제를 만든 사람:&nbsp;<a href="/user/author5">author5</a></li>
-        <li>데이터를 추가한 사람:&nbsp;<a href="/user/dfghcvb11">dfghcvb11</a>, <a href="/user/djm03178">djm03178</a>, <a href="/user/doju">doju</a></li>
-        <li>어색한 표현을 찾은 사람:&nbsp;<a href="/user/doju">doju</a></li>
-        <li>빠진 조건을 찾은 사람:&nbsp;<a href="/user/pumpyboom">pumpyboom</a></li>
+        <li>문제를 만든 사람:&nbsp;author5</li>
+        <li>데이터를 추가한 사람:&nbsp;dfghcvb11, djm03178, doju</li>
+        <li>어색한 표현을 찾은 사람:&nbsp;doju</li>
+        <li>빠진 조건을 찾은 사람:&nbsp;pumpyboom</li>
     </ul>
 </section>
 
@@ -131,17 +131,9 @@
         <h2>알고리즘 분류</h2>
     </div>
     <ul class="spoiler-list">
-        <li>
-            <a href="/problem/tag/7" class="spoiler-link">그래프 이론</a>
-        </li>
-        <li>
-            <a href="/problem/tag/11" class="spoiler-link">그래프 탐색</a>
-        </li>
-        <li>
-            <a href="/problem/tag/126" class="spoiler-link">너비 우선 탐색</a>
-        </li>
-        <li>
-            <a href="/problem/tag/127" class="spoiler-link">깊이 우선 탐색</a>
-        </li>
+        <li>그래프 이론</li>
+        <li>그래프 탐색</li>
+        <li>너비 우선 탐색</li>
+        <li>깊이 우선 탐색</li>
     </ul>
 </section>
