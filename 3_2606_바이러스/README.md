@@ -62,9 +62,9 @@
     <div class="headline">
         <h2>출처</h2>
     </div>
-    <p><a href="/category/2">Olympiad</a>&nbsp;&gt;&nbsp;<a href="/category/55">한국정보올림피아드</a>&nbsp;&gt;&nbsp;<a href="/category/57">한국정보올림피아드시․도지역본선</a>&nbsp;&gt;&nbsp;<a href="/category/74">지역본선 2004</a>&nbsp;&gt;&nbsp;<a href="/category/detail/379">초등부</a>&nbsp;3번</p>
+    <p><a>Olympiad</a>&nbsp;&gt;&nbsp;<a>한국정보올림피아드</a>&nbsp;&gt;&nbsp;<a>한국정보올림피아드시․도지역본선</a>&nbsp;&gt;&nbsp;<a>지역본선 2004</a>&nbsp;&gt;&nbsp;<a>초등부</a>&nbsp;3번</p>
     <ul>
-        <li>데이터를 추가한 사람:&nbsp;<a href="/user/chansol">chansol</a>, <a href="/user/jh05013">jh05013</a></li>
-        <li>잘못된 데이터를 찾은 사람:&nbsp;<a href="/user/djm03178">djm03178</a>, <a href="/user/jsa3824">jsa3824</a></li>
+        <li>데이터를 추가한 사람:&nbsp;<a>chansol</a>, <a>jh05013</a></li>
+        <li>잘못된 데이터를 찾은 사람:&nbsp;<a>djm03178</a>, <a>jsa3824</a></li>
     </ul>
 </section>
