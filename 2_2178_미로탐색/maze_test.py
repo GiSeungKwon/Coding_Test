@@ -1,7 +1,7 @@
 from collections import deque
 
 n, m = map(int, input().split())
-print(f"n:{n}, m:{m}")
+print(f"n: {n}, m: {m}")
 
 maze = [list(map(int, input().strip())) for _ in range(n)]
 print(maze)
