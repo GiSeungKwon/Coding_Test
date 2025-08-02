@@ -1,9 +1,9 @@
 from collections import deque
 
-from numpy.ma.core import append
+from h5py.h5o import visit
 
 n, m, v = map(int, input().split())
-print(f"n: {n}, m: {m}, v: {v}")
+print(f"n:{n}, m:{m}, v:{v}")
 
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
@@ -16,7 +16,7 @@ print(graph)
 
 def dfs(v, visited):
     visited[v] = True
-    print(v, end = ' ')
+    print(v, end=' ')
     for next_node in graph[v]:
         if not visited[next_node]:
             visited[next_node] = True
@@ -28,11 +28,11 @@ def bfs(v, visited):
     queue.append(v)
     while queue:
         now = queue.popleft()
-        print(now, end = ' ')
+        print(now, end=' ')
         for next_node in graph[now]:
             if not visited[next_node]:
-                queue.append(next_node)
                 visited[next_node] = True
+                queue.append(next_node)
 
 visited_dfs = [False] * (n+1)
 dfs(v, visited_dfs)
