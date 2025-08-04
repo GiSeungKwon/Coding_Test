@@ -1,7 +1,15 @@
 from collections import deque
 
+<<<<<<< HEAD
 n, m, v = map(int, input().split())
 print(f"n:{n}, m:{m}, v:{v}")
+=======
+from h5py.h5o import visit
+
+n, m, v = map(int, input().split())
+print(f"n:{n}, m:{m}, v:{v}")
+
+>>>>>>> e1cc33a907a017d2e704dfb5fa6a93b05032ee51
 graph = [[] for _ in range(n+1)]
 
 for _ in range(m):
@@ -15,6 +23,10 @@ for i in range(n+1):
 def dfs(v, visited):
     print(v, end=' ')
     visited[v] = True
+<<<<<<< HEAD
+=======
+    print(v, end=' ')
+>>>>>>> e1cc33a907a017d2e704dfb5fa6a93b05032ee51
     for next_node in graph[v]:
         if not visited[next_node]:
             visited[next_node] = True
