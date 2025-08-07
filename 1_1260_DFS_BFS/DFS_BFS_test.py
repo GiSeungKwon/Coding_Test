@@ -1,11 +1,6 @@
 from collections import deque
 
 n, m, v = map(int, input().split())
-print(f"n:{n}, m:{m}, v:{v}")
-
-n, m, v = map(int, input().split())
-print(f"n:{n}, m:{m}, v:{v}")
-
 graph = [[] for _ in range(n+1)]
 
 for _ in range(m):
@@ -17,24 +12,24 @@ for i in range(n+1):
     graph[i].sort()
 
 def dfs(v, visited):
-    print(v, end=' ')
     visited[v] = True
+    print(v, end=' ')
     for next_node in graph[v]:
         if not visited[next_node]:
             visited[next_node] = True
             dfs(next_node, visited)
 
 def bfs(v, visited):
-    visited[v] = True
     queue = deque()
     queue.append(v)
+    visited[v] = True
     while queue:
         now = queue.popleft()
-        print(now, end=' ')
+        print(now, end = ' ')
         for next_node in graph[now]:
             if not visited[next_node]:
-                visited[next_node] = True
                 queue.append(next_node)
+                visited[next_node] = True
 
 visited_dfs = [False] * (n+1)
 dfs(v, visited_dfs)
