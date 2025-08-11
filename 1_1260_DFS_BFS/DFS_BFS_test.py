@@ -1,6 +1,8 @@
 from collections import deque
 
 n, m, v = map(int, input().split())
+print(f"n:{n}, m:{m}, v:{v}")
+
 graph = [[] for _ in range(n+1)]
 
 for _ in range(m):

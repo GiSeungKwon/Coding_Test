@@ -9,7 +9,21 @@ for _ in range(m):
 for i in range(n+1):
     graph[i].sort()
 print(graph)
+
 count = 0
+
+def dfs(v, visited):
+    global count
+    count += 1
+    visited[v] = True
+    print(v, end=' ')
+    for next_node in graph[v]:
+        if not visited[next_node]:
+            visited[next_node] = True
+            dfs(next_node, visited)
+
+visited = [False] * (n+1)
+dfs(1, visited)
 
 def dfs(v, visited):
     global count
