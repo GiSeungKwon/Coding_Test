@@ -1,16 +1,15 @@
 n = int(input())
 print(n)
+count = 0
+result = []
 
 graph = [list(map(int, input().strip())) for _ in range(n)]
 print(graph)
-
 visited = [[False] * n for _ in range(n)]
 print(visited)
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
-
-count = 0
 
 def dfs(x, y):
     global count
@@ -23,7 +22,6 @@ def dfs(x, y):
             visited[nx][ny] = True
             dfs(nx, ny)
 
-result = []
 for i in range(n):
     for j in range(n):
         if not visited[i][j] and graph[i][j] == 1:
@@ -31,6 +29,7 @@ for i in range(n):
             result.append(count)
             count = 0
 
-print(len(result))
-for i in range(len(result)):
+len_result = len(result)
+print(f"len_result: {len_result}")
+for i in range(len_result):
     print(result[i])
