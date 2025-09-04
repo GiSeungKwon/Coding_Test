@@ -1,28 +1,27 @@
 n = int(input())
 m = int(input())
-print(n, m)
+print(f"n:{n} m:{m}")
+
 graph = [[] for _ in range(n+1)]
 for _ in range(m):
-    start, end = map(int, input().split())
-    graph[start].append(end)
-    graph[end].append(start)
-for i in range(n+1):
-    graph[i].sort()
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
 print(graph)
 
 count = 0
-
 visited = [False] * (n+1)
+print(visited)
+
 def dfs(v):
     global count
     count += 1
     visited[v] = True
-    print(v, end = ' ')
+    # print(v, end = ' ')
     for next_node in graph[v]:
         if not visited[next_node]:
-            dfs(next_node)
             visited[next_node] = True
+            dfs(next_node)
 
 dfs(1)
-print()
 print(count-1)
