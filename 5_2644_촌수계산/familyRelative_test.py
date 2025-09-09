@@ -1,32 +1,31 @@
+from collections import deque
+
 n = int(input())
-start, end = map(int, input().split())
+a, b = map(int, input().split())
 m = int(input())
+print(f"n:{n} a:{a} b:{b} m:{m}")
 
 graph = [[] for _ in range(n+1)]
 
 for _ in range(m):
-    a, b = map(int, input().split())
-    graph[a].append(b)
-    graph[b].append(a)
-
+    x, y = map(int, input().split())
+    graph[x].append(y)
+    graph[y].append(x)
 for i in range(n+1):
     graph[i].sort()
 
-print(graph)
-
 visited = [False] * (n+1)
-count = 0
+count = [0] * (n+1)
 
-def dfs(start, end):
-    visited[start] = True
-    global count
-    count += 1
-    for next_node in graph[start]:
-        if next_node == end:
-            break
-        if not visited[next_node]:
-            dfs(next_node, end)
-            visited[next_node] = True
-
-dfs(start, end)
-print(count)
+def bfs(v):
+    queue = deque()
+    queue.append(v)
+    while queue:
+        now = queue.popleft()
+        for next_node in graph[now]:
+            if not visited[next_node]:
+                visited[next_node] = True
+                count[next_node] = count[now] + 1
+                queue.append(next_node)
+bfs(a)
+print(count[b])

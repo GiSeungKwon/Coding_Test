@@ -25,12 +25,12 @@ visited[a] = True
 dist[a] = 0
 
 while queue:
-    current = queue.popleft()
-    for neighbor in graph[current]:
-        if not visited[neighbor]:
-            visited[neighbor] = True
-            dist[neighbor] = dist[current] + 1
-            queue.append(neighbor)
+    now = queue.popleft()
+    for next_node in graph[now]:
+        if not visited[next_node]:
+            visited[next_node] = True
+            dist[next_node] = dist[now] + 1
+            queue.append(next_node)
 
 # 결과 출력
 print(dist[b])
