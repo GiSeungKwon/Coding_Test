@@ -33,7 +33,7 @@ while queue:
                 box[nz][ny][nx] = box[z][y][x] + 1
                 queue.append((nz, ny, nx))
 
-# 결과 확인
+# 결과 확인 
 days = 0
 for z in range(h):
     for y in range(n):
