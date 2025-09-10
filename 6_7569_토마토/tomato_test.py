@@ -1,14 +1,15 @@
 from collections import deque
 
 m, n, h = map(int, input().split())
-graph = [[[0]*m for _ in range(n)] for _ in range(h)]
+
+graph = [[[0] * m for _ in range(n)] for _ in range(h)]
 for h_ in range(h):
     for n_ in range(n):
         graph[h_][n_] = list(map(int, input().split()))
 
-dm = [-1, 1, 0, 0, 0, 0]
+dh = [-1, 1, 0, 0, 0, 0]
 dn = [0, 0, -1, 1, 0, 0]
-dh = [0, 0, 0, 0, -1, 1]
+dm = [0, 0, 0, 0, -1, 1]
 
 queue = deque()
 for h_ in range(h):
@@ -23,17 +24,14 @@ while queue:
         nh = h_ + dh[i]
         nn = n_ + dn[i]
         nm = m_ + dm[i]
-        if (0<=nh<h and 0<=nn<n and 0<=nm<m and graph[nh][nn][nm] == 0):
+        if 0<=nh<h and 0<=nn<n and 0<=nm<m and graph[nh][nn][nm] == 0:
             graph[nh][nn][nm] = graph[h_][n_][m_] + 1
-            queue.append((nh,nn,nm))
+            queue.append((nh, nn, nm))
 
 days = 0
 for h_ in range(h):
     for n_ in range(n):
         for m_ in range(m):
-            if graph[h_][n_][m_] == 0:
-                print(-1)
-                exit()
             days = max(days, graph[h_][n_][m_])
 
 print(days-1)
