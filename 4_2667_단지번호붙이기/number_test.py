@@ -9,25 +9,26 @@ dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
 def dfs(x, y):
-    visited[x][y] = True
     global count
     count += 1
+    visited[x][y] = True
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
-        if 0<=nx<n and 0<=ny<n and graph[nx][ny]==1 and not visited[nx][ny]:
+        if 0<=nx<n and 0<=ny<n and not visited[nx][ny] and graph[nx][ny] == 1:
             visited[nx][ny] = True
             dfs(nx, ny)
 
 result = []
-
 for i in range(n):
     for j in range(n):
         if not visited[i][j] and graph[i][j] == 1:
-            count = 0
             dfs(i, j)
             result.append(count)
+            count = 0
 
 print(len(result))
-for tem in result:
-    print(tem)
+for i in range(len(result)):
+    result.sort()
+for item in result:
+    print(item)
