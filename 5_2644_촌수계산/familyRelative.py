@@ -6,7 +6,7 @@ a, b = map(int, input().split())
 m = int(input())
 
 # 그래프 초기화 (1-indexed)
-graph = [[] for _ in range(n + 1)]
+graph = [[] for _ in range(n + 1)]+
 
 # 관계 저장 (양방향)
 for _ in range(m):
