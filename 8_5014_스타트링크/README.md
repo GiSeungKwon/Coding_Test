@@ -3,10 +3,10 @@
         <h2>문제</h2>
     </div>
     <div id="problem_description" class="problem-text">
-        <p>철수의 토마토 농장에서는 토마토를 보관하는 큰 창고를 가지고 있다. 토마토는 아래의 그림과 같이 격자모양 상자의 칸에 하나씩 넣은 다음, 상자들을 수직으로 쌓아 올려서 창고에 보관한다.</p>
-        <p style="text-align: center;"><img alt="" src="https://u.acmicpc.net/c3f3343d-c291-40a9-9fe3-59f792a8cae9/Screen%20Shot%202021-06-22%20at%202.49.11%20PM.png" style="width: 201px; height: 252px;"></p>
-        <p>창고에 보관되는 토마토들 중에는 잘 익은 것도 있지만, 아직 익지 않은 토마토들도 있을 수 있다. 보관 후 하루가 지나면, 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다. 하나의 토마토에 인접한 곳은 위, 아래, 왼쪽, 오른쪽, 앞, 뒤 여섯 방향에 있는 토마토를 의미한다. 대각선 방향에 있는 토마토들에게는 영향을 주지 못하며, 토마토가 혼자 저절로 익는 경우는 없다고 가정한다. 철수는 창고에 보관된 토마토들이 며칠이 지나면 다 익게 되는지 그 최소 일수를 알고 싶어 한다.</p>
-        <p>토마토를 창고에 보관하는 격자모양의 상자들의 크기와 익은 토마토들과 익지 않은 토마토들의 정보가 주어졌을 때, 며칠이 지나면 토마토들이 모두 익는지, 그 최소 일수를 구하는 프로그램을 작성하라. 단, 상자의 일부 칸에는 토마토가 들어있지 않을 수도 있다.</p>
+        <p>강호는 코딩 교육을 하는 스타트업 <a href="https://startlink.io">스타트링크</a>에 지원했다. 오늘은 강호의 면접날이다. 하지만, 늦잠을 잔 강호는 스타트링크가 있는 건물에 늦게 도착하고 말았다.</p>
+        <p>스타트링크는 총 F층으로 이루어진 고층 건물에 사무실이 있고, 스타트링크가 있는 곳의 위치는 G층이다. 강호가 지금 있는 곳은 S층이고, 이제 엘리베이터를 타고 G층으로 이동하려고 한다.</p>
+        <p>보통 엘리베이터에는 어떤 층으로 이동할 수 있는 버튼이 있지만, 강호가 탄 엘리베이터는 버튼이 2개밖에 없다. U버튼은 위로 U층을 가는 버튼, D버튼은 아래로 D층을 가는 버튼이다. (만약, U층 위, 또는 D층 아래에 해당하는 층이 없을 때는, 엘리베이터는 움직이지 않는다)</p>
+        <p>강호가 G층에 도착하려면, 버튼을 적어도 몇 번 눌러야 하는지 구하는 프로그램을 작성하시오. 만약, 엘리베이터를 이용해서 G층에 갈 수 없다면, "use the stairs"를 출력한다.</p>
     </div>
 </section>
 
@@ -15,8 +15,7 @@
         <h2>입력</h2>
     </div>
     <div id="problem_input" class="problem-text">
-        <p>첫 줄에는 상자의 크기를 나타내는 두 정수 M,N과 쌓아올려지는 상자의 수를 나타내는 H가 주어진다. M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸다. 단, 2 ≤ M ≤ 100, 2 ≤ N ≤ 100, 1 ≤ H ≤ 100 이다. 둘째 줄부터는 가장 밑의 상자부터 가장 위의 상자까지에 저장된 토마토들의 정보가 주어진다. 즉, 둘째 줄부터 N개의 줄에는 하나의 상자에 담긴 토마토의 정보가 주어진다. 각 줄에는 상자 가로줄에 들어있는 토마토들의 상태가 M개의 정수로 주어진다. 정수 1은 익은 토마토, 정수 0 은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸을 나타낸다. 이러한 N개의 줄이 H번 반복하여 주어진다.</p>
-        <p>토마토가 하나 이상 있는 경우만 입력으로 주어진다.</p>
+        <p>첫째 줄에 F, S, G, U, D가 주어진다. (1 ≤ S, G ≤ F ≤ 1000000, 0 ≤ U, D ≤ 1000000) 건물은 1층부터 시작하고, 가장 높은 층은 F층이다.</p>
     </div>
 </section>
 
@@ -25,7 +24,7 @@
         <h2>출력</h2>
     </div>
     <div id="problem_output" class="problem-text">
-        <p>여러분은 토마토가 모두 익을 때까지 최소 며칠이 걸리는지를 계산해서 출력해야 한다. 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.</p>
+        <p>첫째 줄에 강호가 S층에서 G층으로 가기 위해 눌러야 하는 버튼의 수의 최솟값을 출력한다. 만약, 엘리베이터로 이동할 수 없을 때는 "use the stairs"를 출력한다.</p>
     </div>
 </section>
 
@@ -33,10 +32,7 @@
     <div class="headline">
         <h2>예제 입력 1</h2>
     </div>
-    <pre class="sampledata" id="sample-input-1">5 3 1
-0 -1 0 0 0
--1 -1 0 1 1
-0 0 0 1 1
+    <pre class="sampledata" id="sample-input-1">10 1 10 2 1
 </pre>
 </section>
 
@@ -44,7 +40,7 @@
     <div class="headline">
         <h2>예제 출력 1</h2>
     </div>
-    <pre class="sampledata" id="sample-output-1">-1
+    <pre class="sampledata" id="sample-output-1">6
 </pre>
 </section>
 
@@ -52,13 +48,7 @@
     <div class="headline">
         <h2>예제 입력 2</h2>
     </div>
-    <pre class="sampledata" id="sample-input-2">5 3 2
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 1 0 0
-0 0 0 0 0
+    <pre class="sampledata" id="sample-input-2">100 2 1 1 0
 </pre>
 </section>
 
@@ -66,28 +56,6 @@
     <div class="headline">
         <h2>예제 출력 2</h2>
     </div>
-    <pre class="sampledata" id="sample-output-2">4
-</pre>
-</section>
-
-<section id="sampleinput3">
-    <div class="headline">
-        <h2>예제 입력 3</h2>
-    </div>
-    <pre class="sampledata" id="sample-input-3">4 3 2
-1 1 1 1
-1 1 1 1
-1 1 1 1
-1 1 1 1
--1 -1 -1 -1
-1 1 1 -1
-</pre>
-</section>
-
-<section id="sampleoutput3">
-    <div class="headline">
-        <h2>예제 출력 3</h2>
-    </div>
-    <pre class="sampledata" id="sample-output-3">0
+    <pre class="sampledata" id="sample-output-2">use the stairs
 </pre>
 </section>
