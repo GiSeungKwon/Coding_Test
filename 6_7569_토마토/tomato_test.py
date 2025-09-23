@@ -13,17 +13,16 @@ def bfs():
         for y in range(n):
             for x in range(m):
                 if graph[z][y][x] == 1:
-                    queue.append((x, y, z))
+                    queue.append((z,y,x))
     while queue:
-        x, y, z = queue.popleft()
+        z, y, x = queue.popleft()
         for i in range(6):
-            nx = x + dx[i]
-            ny = y + dy[i]
             nz = z + dz[i]
-            if 0<=nx<m and 0<=ny<n and 0<=nz<h and graph[nz][ny][nx] == 0:
+            ny = y + dy[i]
+            nx = x + dx[i]
+            if 0<=nz<h and 0<=ny<n and 0<=nx<m and graph[nz][ny][nx] == 0:
                 graph[nz][ny][nx] = graph[z][y][x] + 1
-                queue.append((nx, ny, nz))
-
+                queue.append((nz, ny, nx))
     days = 0
     for z in range(h):
         for y in range(n):
@@ -32,5 +31,4 @@ def bfs():
                     return -1
                 days = max(days, graph[z][y][x])
     return days-1
-
 print(bfs())

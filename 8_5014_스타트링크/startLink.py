@@ -1,27 +1,27 @@
 from collections import deque
 
-f, s, g, u, d = map(int, input().split())
-visited = [False] * (f+1)
-graph = [-1] * (f+1)
+F, S, G, U, D = map(int, input().split())
+graph = [-1] * (F+1)   # 각 층까지의 버튼 누른 횟수 기록
+visited = [False] * (F+1)
 
-def bfs(start, end):
-    visited[start] = True
-    queue = deque()
-    queue.append(start)
-    graph[start] = 0
+def bfs():
+    queue = deque([S])
+    visited[S] = True
+    graph[S] = 0
 
     while queue:
         now = queue.popleft()
-        if now == end:
+        if now == G:
             return graph[now]
-        for next_node in (now+u, now-d):
-            if 0<=next_node<=f and not visited[next_node]:
+
+        for next_node in (now + U, now - D):
+            if 1 <= next_node <= F and not visited[next_node]:
                 visited[next_node] = True
                 graph[next_node] = graph[now] + 1
                 queue.append(next_node)
     return -1
 
-result = bfs(s, g)
+result = bfs()
 if result == -1:
     print("use the stairs")
 else:
