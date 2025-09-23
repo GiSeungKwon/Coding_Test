@@ -38,6 +38,5 @@ def bfs():
                 days = max(days, box[z][y][x])
     return days - 1  # 첫날은 1로 시작했으니 -1
 
-
 # 실행
 print(bfs())

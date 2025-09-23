@@ -1,23 +1,24 @@
 from collections import deque
 
-def bfs(N, K):
-    MAX = 100000
-    visited = [False] * (MAX + 1)
-    dist = [0] * (MAX + 1)
+n, m = map(int, input().split())
 
-    queue = deque([N])
-    visited[N] = True
+max = 100000
+visited = [False] * max
+graph = [0] * max
+
+def bfs(n, m):
+    visited[n] = True
+    queue = deque()
+    queue.append(n)
 
     while queue:
-        x = queue.popleft()
-        if x == K:
-            return dist[x]
-        for nx in (x-1, x+1, 2*x):
-            if 0 <= nx <= MAX and not visited[nx]:
-                visited[nx] = True
-                dist[nx] = dist[x] + 1
-                queue.append(nx)
+        now = queue.popleft()
+        if now == m:
+            return graph[now]
+        for next_node in (now-1, now+1, 2*now):
+            if 0<=next_node<=max and not visited[next_node]:
+                visited[next_node] = True
+                graph[next_node] = graph[now] + 1
+                queue.append(next_node)
 
-# 입력
-N, K = map(int, input().split())
-print(bfs(N, K))
+print(bfs(n, m))
