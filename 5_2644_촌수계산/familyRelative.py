@@ -1,36 +1,29 @@
 from collections import deque
 
-# 입력
 n = int(input())
-a, b = map(int, input().split())
+start, end = map(int, input().split())
 m = int(input())
 
-# 그래프 초기화 (1-indexed)
-graph = [[] for _ in range(n + 1)]
+graph = [[] for _ in range(n+1)]
+visited = [False] * (n+1)
+distance = [-1] * (n+1)  # 촌수 기록 (-1 = 아직 방문 안 함)
 
-# 관계 저장 (양방향)
 for _ in range(m):
-    x, y = map(int, input().split())
-    graph[x].append(y)
-    graph[y].append(x)
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
 
-# 방문 여부 및 촌수 저장
-visited = [False] * (n + 1)
-dist = [-1] * (n + 1)
+def bfs(start):
+    queue = deque([start])
+    visited[start] = True
+    distance[start] = 0  # 자기 자신은 0촌
+    while queue:
+        now = queue.popleft()
+        for next_node in graph[now]:
+            if not visited[next_node]:
+                visited[next_node] = True
+                distance[next_node] = distance[now] + 1
+                queue.append(next_node)
 
-# BFS 시작
-queue = deque()
-queue.append(a)
-visited[a] = True
-dist[a] = 0
-
-while queue:
-    now = queue.popleft()
-    for next_node in graph[now]:
-        if not visited[next_node]:
-            visited[next_node] = True
-            dist[next_node] = dist[now] + 1
-            queue.append(next_node)
-
-# 결과 출력
-print(dist[b])
+bfs(start)
+print(distance[end])

@@ -1,7 +1,6 @@
 n = int(input())
 m = int(input())
 count = 0
-visited = [False] * (n+1)
 graph = [[] for _ in range(n+1)]
 
 for _ in range(m):
@@ -12,13 +11,14 @@ for i in range(n+1):
     graph[i].sort()
 
 def dfs(v, visited):
-    global count
-    count += 1
     visited[v] = True
     for next_node in graph[v]:
         if not visited[next_node]:
+            global count
+            count += 1
             visited[next_node] = True
             dfs(next_node, visited)
 
+visited = [False] * (n+1)
 dfs(1, visited)
-print(count-1)
+print(count)
