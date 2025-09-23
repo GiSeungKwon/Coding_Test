@@ -8,45 +8,7 @@ https://www.acmicpc.net/problem/2468
             <div id="problem_description" class="problem-text">
                 <p>재난방재청에서는 많은 비가 내리는 장마철에 대비해서 다음과 같은 일을 계획하고 있다. 먼저 어떤 지역의 높이 정보를 파악한다. 그 다음에 그 지역에 많은 비가 내렸을 때 물에 잠기지 않는 안전한 영역이 최대로 몇 개가 만들어 지는 지를 조사하려고 한다. 이때, 문제를 간단하게 하기 위하여, 장마철에 내리는 비의 양에 따라 일정한 높이 이하의 모든 지점은 물에 잠긴다고 가정한다.</p>
                 <p>어떤 지역의 높이 정보는 행과 열의 크기가 각각 N인 2차원 배열 형태로 주어지며 배열의 각 원소는 해당 지점의 높이를 표시하는 자연수이다. 예를 들어, 다음은 N=5인 지역의 높이 정보이다.</p>
-                <table class="table table-bordered table-center-20 td-center">
-                    <tbody>
-                        <tr>
-                            <td>6</td>
-                            <td>8</td>
-                            <td>2</td>
-                            <td>6</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>2</td>
-                            <td>5</td>
-                            <td>3</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>5</td>
-                            <td>2</td>
-                            <td>7</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p><img alt="" src="./1.png" style="width: 239px; height: 157px; "></p>
                 <p>이제 위와 같은 지역에 많은 비가 내려서 높이가 4 이하인 모든 지점이 물에 잠겼다고 하자. 이 경우에 물에 잠기는 지점을 회색으로 표시하면 다음과 같다. </p>
                 <table class="table table-bordered table-center-20 td-center">
                     <tbody>
