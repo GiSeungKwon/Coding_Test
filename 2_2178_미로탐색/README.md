@@ -65,9 +65,7 @@
 
 <section id="sampleinput1">
     <div class="headline">
-        <h2>예제 입력 1
-            <button type="button" class="btn btn-link copy-button" style="padding: 0px;" data-clipboard-target="#sample-input-1">복사</button>
-        </h2>
+        <h2>예제 입력 1</h2>
     </div>
     <pre class="sampledata" id="sample-input-1">4 6
 101111
@@ -79,9 +77,7 @@
 
 <section id="sampleoutput1">
     <div class="headline">
-        <h2>예제 출력 1
-            <button type="button" class="btn btn-link copy-button" style="padding: 0px;" data-clipboard-target="#sample-output-1">복사</button>
-        </h2>
+        <h2>예제 출력 1</h2>
     </div>
     <pre class="sampledata" id="sample-output-1">15</pre>
 </section>
@@ -90,9 +86,7 @@
     <div class="col-md-6">
         <section id="sampleinput3">
             <div class="headline">
-                <h2>예제 입력 3
-                    <button type="button" class="btn btn-link copy-button" style="padding: 0px;" data-clipboard-target="#sample-input-3">복사</button>
-                </h2>
+                <h2>예제 입력 3</h2>
             </div>
             <pre class="sampledata" id="sample-input-3">2 25
 1011101110111011101110111
@@ -103,9 +97,7 @@
     <div class="col-md-6">
         <section id="sampleoutput3">
             <div class="headline">
-                <h2>예제 출력 3
-                    <button type="button" class="btn btn-link copy-button" style="padding: 0px;" data-clipboard-target="#sample-output-3">복사</button>
-                </h2>
+                <h2>예제 출력 3</h2>
             </div>
             <pre class="sampledata" id="sample-output-3">38
 </pre>
@@ -117,9 +109,7 @@
     <div class="col-md-6">
         <section id="sampleinput4">
             <div class="headline">
-                <h2>예제 입력 4
-                    <button type="button" class="btn btn-link copy-button" style="padding: 0px;" data-clipboard-target="#sample-input-4">복사</button>
-                </h2>
+                <h2>예제 입력 4</h2>
             </div>
             <pre class="sampledata" id="sample-input-4">7 7
 1011111
@@ -135,9 +125,7 @@
     <div class="col-md-6">
         <section id="sampleoutput4">
             <div class="headline">
-                <h2>예제 출력 4
-                    <button type="button" class="btn btn-link copy-button" style="padding: 0px;" data-clipboard-target="#sample-output-4">복사</button>
-                </h2>
+                <h2>예제 출력 4</h2>
             </div>
             <pre class="sampledata" id="sample-output-4">13
 </pre>
