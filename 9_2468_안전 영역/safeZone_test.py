@@ -16,9 +16,8 @@ def bfs(x, y, h, visited):
         for i in range(4):
             nx, ny = x+dx[i], y+dy[i]
             if 0<=nx<n and 0<=ny<n and not visited[nx][ny] and graph[nx][ny] > h:
-                visited[nx][ny] = True
                 queue.append((nx, ny))
-
+                visited[nx][ny] = True
 answer = 0
 for h in range(max_height+1):
     visited = [[False] * n for _ in range(n)]
@@ -28,6 +27,5 @@ for h in range(max_height+1):
             if not visited[i][j] and graph[i][j] > h:
                 bfs(i, j, h, visited)
                 count += 1
-    answer = max(answer, count)
-
+                answer = max(answer, count)
 print(answer)
