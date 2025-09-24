@@ -2,6 +2,9 @@ from collections import deque
 
 m, n, h = map(int, input().split())
 graph = [[list(map(int, input().split())) for _ in range(n)] for _ in range(h)]
+print(graph)
+# visited = [[[False] * m for _ in range(n)] for _ in range(h)]
+# print(visited)
 
 dx = [-1, 1, 0, 0, 0, 0]
 dy = [0, 0, -1, 1, 0, 0]
@@ -13,16 +16,16 @@ def bfs():
         for y in range(n):
             for x in range(m):
                 if graph[z][y][x] == 1:
-                    queue.append((z,y,x))
+                    queue.append((z, y, x))
+                    # visited[z][y][x] = True
     while queue:
         z, y, x = queue.popleft()
         for i in range(6):
-            nz = z + dz[i]
-            ny = y + dy[i]
-            nx = x + dx[i]
+            nz, ny, nx = z+dz[i], y+dy[i], x+dx[i]
             if 0<=nz<h and 0<=ny<n and 0<=nx<m and graph[nz][ny][nx] == 0:
-                graph[nz][ny][nx] = graph[z][y][x] + 1
+                # visited[nz][ny][nx] = True
                 queue.append((nz, ny, nx))
+                graph[nz][ny][nx] = graph[z][y][x] + 1
     days = 0
     for z in range(h):
         for y in range(n):
@@ -31,4 +34,5 @@ def bfs():
                     return -1
                 days = max(days, graph[z][y][x])
     return days-1
+
 print(bfs())
