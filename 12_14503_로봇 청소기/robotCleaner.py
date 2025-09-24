@@ -1,46 +1,38 @@
-from collections import deque
+N, M = map(int, input().split())
+r, c, d = map(int, input().split())
+graph = [list(map(int, input().split())) for _ in range(N)]
 
-# 입력
-m, n, h = map(int, input().split())
-box = [[[0]*m for _ in range(n)] for _ in range(h)]
+# 북, 동, 남, 서
+dx = [-1, 0, 1, 0]
+dy = [0, 1, 0, -1]
 
-for k in range(h):
-    for i in range(n):
-        box[k][i] = list(map(int, input().split()))
+count = 0
 
-# 좌우 앞뒤 상하
-dx = [-1, 1, 0, 0, 0, 0]
-dy = [0, 0, -1, 1, 0, 0]
-dz = [0, 0, 0, 0, -1, 1]
+while True:
+    # 1. 현재 칸 청소
+    if graph[r][c] == 0:
+        graph[r][c] = 2  # 청소됨 표시
+        count += 1
 
-# 익은 토마토 위치 저장
-queue = deque()
-for z in range(h):
-    for y in range(n):
-        for x in range(m):
-            if box[z][y][x] == 1:
-                queue.append((z, y, x))
+    # 2. 주변 4칸 확인
+    moved = False
+    for _ in range(4):
+        d = (d + 3) % 4  # 반시계 방향 회전
+        nx, ny = r + dx[d], c + dy[d]
+        if graph[nx][ny] == 0:  # 청소 안 된 빈 칸
+            r, c = nx, ny
+            moved = True
+            break
 
-# BFS
-while queue:
-    z, y, x = queue.popleft()
-    for d in range(6):
-        nz = z + dz[d]
-        ny = y + dy[d]
-        nx = x + dx[d]
-        if 0 <= nz < h and 0 <= ny < n and 0 <= nx < m:
-            if box[nz][ny][nx] == 0:
-                box[nz][ny][nx] = box[z][y][x] + 1
-                queue.append((nz, ny, nx))
+    if moved:
+        continue
 
-# 결과 확인 
-days = 0
-for z in range(h):
-    for y in range(n):
-        for x in range(m):
-            if box[z][y][x] == 0:
-                print(-1)
-                exit()
-            days = max(days, box[z][y][x])
+    # 3. 후진
+    back = (d + 2) % 4
+    bx, by = r + dx[back], c + dy[back]
+    if graph[bx][by] == 1:  # 벽이면 종료
+        break
+    else:  # 벽이 아니면 후진
+        r, c = bx, by
 
-print(days - 1)  # 첫날은 1로 시작했으니 -1
+print(count)

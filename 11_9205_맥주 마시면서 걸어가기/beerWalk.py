@@ -1,46 +1,27 @@
 from collections import deque
 
-# 입력
-m, n, h = map(int, input().split())
-box = [[[0]*m for _ in range(n)] for _ in range(h)]
+def manhattan(p1, p2):
+    return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
 
-for k in range(h):
-    for i in range(n):
-        box[k][i] = list(map(int, input().split()))
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    locations = [tuple(map(int, input().split())) for _ in range(n+2)]
+    # 0: 집, 1~n: 편의점, n+1: 페스티벌
 
-# 좌우 앞뒤 상하
-dx = [-1, 1, 0, 0, 0, 0]
-dy = [0, 0, -1, 1, 0, 0]
-dz = [0, 0, 0, 0, -1, 1]
+    visited = [False] * (n+2)
 
-# 익은 토마토 위치 저장
-queue = deque()
-for z in range(h):
-    for y in range(n):
-        for x in range(m):
-            if box[z][y][x] == 1:
-                queue.append((z, y, x))
+    def bfs():
+        queue = deque([0])  # 집에서 출발
+        visited[0] = True
+        while queue:
+            now = queue.popleft()
+            if now == n+1:  # 페스티벌 도착
+                return True
+            for nxt in range(n+2):
+                if not visited[nxt] and manhattan(locations[now], locations[nxt]) <= 1000:
+                    visited[nxt] = True
+                    queue.append(nxt)
+        return False
 
-# BFS
-while queue:
-    z, y, x = queue.popleft()
-    for d in range(6):
-        nz = z + dz[d]
-        ny = y + dy[d]
-        nx = x + dx[d]
-        if 0 <= nz < h and 0 <= ny < n and 0 <= nx < m:
-            if box[nz][ny][nx] == 0:
-                box[nz][ny][nx] = box[z][y][x] + 1
-                queue.append((nz, ny, nx))
-
-# 결과 확인 
-days = 0
-for z in range(h):
-    for y in range(n):
-        for x in range(m):
-            if box[z][y][x] == 0:
-                print(-1)
-                exit()
-            days = max(days, box[z][y][x])
-
-print(days - 1)  # 첫날은 1로 시작했으니 -1
+    print("happy" if bfs() else "sad")
