@@ -1,94 +1,231 @@
 https://www.acmicpc.net/problem/2573
-<section id="description" class="problem-section">
-    <div class="headline">
-        <h2>문제</h2>
+<div id="problem-body" class="">
+    <div class="col-md-12">
+        <section id="description" class="problem-section">
+            <div class="headline">
+                <h2>문제</h2>
+            </div>
+            <div id="problem_description" class="problem-text">
+                <p>지구 온난화로 인하여 북극의 빙산이 녹고 있다. 빙산을 그림 1과 같이 2차원 배열에 표시한다고 하자. 빙산의 각 부분별 높이 정보는 배열의 각 칸에 양의 정수로 저장된다. 빙산 이외의 바다에 해당되는 칸에는 0이 저장된다. 그림 1에서 빈칸은 모두 0으로 채워져 있다고 생각한다.</p>
+                <table class="table table-bordered td-center table-center-35 td-width-5">
+                    <tbody>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>3</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>3</td>
+                            <td>&nbsp;</td>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>7</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center;">그림 1. 행의 개수가 5이고 열의 개수가 7인 2차원 배열에 저장된 빙산의 높이 정보</p>
+                <p><span style="line-height:1.6em">빙산의 높이는 바닷물에 많이 접해있는 부분에서 더 빨리 줄어들기 때문에, 배열에서 빙산의 각 부분에 해당되는 칸에 있는 높이는 일년마다 그 칸에 동서남북 네 방향으로 붙어있는 0이 저장된 칸의 개수만큼 줄어든다. 단, 각 칸에 저장된 높이는 0보다 더 줄어들지 않는다. 바닷물은 호수처럼 빙산에 둘러싸여 있을 수도 있다. 따라서 그림 1의 빙산은 일년후에 그림 2와 같이 변형된다.</span></p>
+                <p>그림 3은 그림 1의 빙산이 2년 후에 변한 모습을 보여준다. 2차원 배열에서 동서남북 방향으로 붙어있는 칸들은 서로 연결되어 있다고 말한다. 따라서 그림 2의 빙산은 한 덩어리이지만, 그림 3의 빙산은 세 덩어리로 분리되어 있다.</p>
+                <table class="table table-bordered td-center table-center-35 td-width-5">
+                    <tbody>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>2</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>1</td>
+                            <td>&nbsp;</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>5</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center;">그림 2</p>
+                <table class="table table-bordered td-center table-center-35 td-width-5">
+                    <tbody>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>3</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>4</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center;">그림 3</p>
+                <p>한 덩어리의 빙산이 주어질 때, 이 빙산이 두 덩어리 이상으로 분리되는 최초의 시간(년)을 구하는 프로그램을 작성하시오. 그림 1의 빙산에 대해서는 2가 답이다. 만일 전부 다 녹을 때까지 두 덩어리 이상으로 분리되지 않으면 프로그램은 0을 출력한다.</p>
+            </div>
+        </section>
     </div>
-    <div id="problem_description" class="problem-text">
-        <p>철수의 토마토 농장에서는 토마토를 보관하는 큰 창고를 가지고 있다. 토마토는 아래의 그림과 같이 격자모양 상자의 칸에 하나씩 넣은 다음, 상자들을 수직으로 쌓아 올려서 창고에 보관한다.</p>
-        <p style="text-align: center;"><img alt="" src="https://u.acmicpc.net/c3f3343d-c291-40a9-9fe3-59f792a8cae9/Screen%20Shot%202021-06-22%20at%202.49.11%20PM.png" style="width: 201px; height: 252px;"></p>
-        <p>창고에 보관되는 토마토들 중에는 잘 익은 것도 있지만, 아직 익지 않은 토마토들도 있을 수 있다. 보관 후 하루가 지나면, 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다. 하나의 토마토에 인접한 곳은 위, 아래, 왼쪽, 오른쪽, 앞, 뒤 여섯 방향에 있는 토마토를 의미한다. 대각선 방향에 있는 토마토들에게는 영향을 주지 못하며, 토마토가 혼자 저절로 익는 경우는 없다고 가정한다. 철수는 창고에 보관된 토마토들이 며칠이 지나면 다 익게 되는지 그 최소 일수를 알고 싶어 한다.</p>
-        <p>토마토를 창고에 보관하는 격자모양의 상자들의 크기와 익은 토마토들과 익지 않은 토마토들의 정보가 주어졌을 때, 며칠이 지나면 토마토들이 모두 익는지, 그 최소 일수를 구하는 프로그램을 작성하라. 단, 상자의 일부 칸에는 토마토가 들어있지 않을 수도 있다.</p>
+    <div class="col-md-12">
+        <section id="input" class="problem-section">
+            <div class="headline">
+                <h2>입력</h2>
+            </div>
+            <div id="problem_input" class="problem-text">
+                <p>첫 줄에는 이차원 배열의 행의 개수와 열의 개수를 나타내는 두 정수 N과 M이 한 개의 빈칸을 사이에 두고 주어진다. N과 M은 3 이상 300 이하이다. 그 다음 N개의 줄에는 각 줄마다 배열의 각 행을 나타내는 M개의 정수가 한 개의 빈 칸을 사이에 두고 주어진다. 각 칸에 들어가는 값은 0 이상 10 이하이다. 배열에서 빙산이 차지하는 칸의 개수, 즉, 1 이상의 정수가 들어가는 칸의 개수는 10,000 개 이하이다. 배열의 첫 번째 행과 열, 마지막 행과 열에는 항상 0으로 채워진다.</p>
+            </div>
+        </section>
     </div>
-</section>
-
-<section id="input" class="problem-section">
-    <div class="headline">
-        <h2>입력</h2>
+    <div class="col-md-12">
+        <section id="output" class="problem-section">
+            <div class="headline">
+                <h2>출력</h2>
+            </div>
+            <div id="problem_output" class="problem-text">
+                <p>첫 줄에 빙산이 분리되는 최초의 시간(년)을 출력한다. 만일 빙산이 다 녹을 때까지 분리되지 않으면 0을 출력한다.</p>
+            </div>
+        </section>
     </div>
-    <div id="problem_input" class="problem-text">
-        <p>첫 줄에는 상자의 크기를 나타내는 두 정수 M,N과 쌓아올려지는 상자의 수를 나타내는 H가 주어진다. M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸다. 단, 2 ≤ M ≤ 100, 2 ≤ N ≤ 100, 1 ≤ H ≤ 100 이다. 둘째 줄부터는 가장 밑의 상자부터 가장 위의 상자까지에 저장된 토마토들의 정보가 주어진다. 즉, 둘째 줄부터 N개의 줄에는 하나의 상자에 담긴 토마토의 정보가 주어진다. 각 줄에는 상자 가로줄에 들어있는 토마토들의 상태가 M개의 정수로 주어진다. 정수 1은 익은 토마토, 정수 0 은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸을 나타낸다. 이러한 N개의 줄이 H번 반복하여 주어진다.</p>
-        <p>토마토가 하나 이상 있는 경우만 입력으로 주어진다.</p>
+    <div class="col-md-12">
+        <section id="limit" style="display:none;" class="problem-section">
+            <div class="headline">
+                <h2>제한</h2>
+            </div>
+            <div id="problem_limit" class="problem-text">
+            </div>
+        </section>
     </div>
-</section>
-
-<section id="output" class="problem-section">
-    <div class="headline">
-        <h2>출력</h2>
-    </div>
-    <div id="problem_output" class="problem-text">
-        <p>여러분은 토마토가 모두 익을 때까지 최소 며칠이 걸리는지를 계산해서 출력해야 한다. 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.</p>
-    </div>
-</section>
-
-<section id="sampleinput1">
-    <div class="headline">
-        <h2>예제 입력 1</h2>
-    </div>
-    <pre class="sampledata" id="sample-input-1">5 3 1
-0 -1 0 0 0
--1 -1 0 1 1
-0 0 0 1 1
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <section id="sampleinput1">
+                    <div class="headline">
+                        <h2>예제 입력 1</h2>
+                    </div>
+                    <pre class="sampledata" id="sample-input-1">5 7
+0 0 0 0 0 0 0
+0 2 4 5 3 0 0
+0 3 0 2 5 2 0
+0 7 6 2 4 0 0
+0 0 0 0 0 0 0
 </pre>
-</section>
-
-<section id="sampleoutput1">
-    <div class="headline">
-        <h2>예제 출력 1</h2>
-    </div>
-    <pre class="sampledata" id="sample-output-1">-1
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section id="sampleoutput1">
+                    <div class="headline">
+                        <h2>예제 출력 1</h2>
+                    </div>
+                    <pre class="sampledata" id="sample-output-1">2
 </pre>
-</section>
-
-<section id="sampleinput2">
-    <div class="headline">
-        <h2>예제 입력 2</h2>
+                </section>
+            </div>
+        </div>
     </div>
-    <pre class="sampledata" id="sample-input-2">5 3 2
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 1 0 0
-0 0 0 0 0
-</pre>
-</section>
-
-<section id="sampleoutput2">
-    <div class="headline">
-        <h2>예제 출력 2</h2>
+    <div class="col-md-12">
+        <section id="hint" style="display: none;" class="problem-section">
+            <div class="headline">
+                <h2>힌트</h2>
+            </div>
+            <div id="problem_hint" class="problem-text">
+            </div>
+        </section>
     </div>
-    <pre class="sampledata" id="sample-output-2">4
-</pre>
-</section>
-
-<section id="sampleinput3">
-    <div class="headline">
-        <h2>예제 입력 3</h2>
-    </div>
-    <pre class="sampledata" id="sample-input-3">4 3 2
-1 1 1 1
-1 1 1 1
-1 1 1 1
-1 1 1 1
--1 -1 -1 -1
-1 1 1 -1
-</pre>
-</section>
-
-<section id="sampleoutput3">
-    <div class="headline">
-        <h2>예제 출력 3</h2>
-    </div>
-    <pre class="sampledata" id="sample-output-3">0
-</pre>
-</section>
+</div>

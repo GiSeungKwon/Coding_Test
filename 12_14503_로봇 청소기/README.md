@@ -1,94 +1,653 @@
 https://www.acmicpc.net/problem/14503
-<section id="description" class="problem-section">
-    <div class="headline">
-        <h2>문제</h2>
+<div id="problem-body" class="">
+    <div class="col-md-12">
+        <section id="description" class="problem-section">
+            <div class="headline">
+                <h2>문제</h2>
+            </div>
+            <div id="problem_description" class="problem-text">
+                <p>로봇 청소기와 방의 상태가 주어졌을 때, 청소하는 영역의 개수를 구하는 프로그램을 작성하시오.</p>
+                <p>로봇 청소기가 있는 방은 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D441 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-cD7"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="3">
+                                <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>N</mi>
+                                <mo>×</mo>
+                                <mi>M</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$N \times M$</span>
+                    </mjx-container> 크기의 직사각형으로 나타낼 수 있으며, <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-cD7"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="3">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>1</mn>
+                                <mo>×</mo>
+                                <mn>1</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$1 \times 1$</span>
+                    </mjx-container> 크기의 정사각형 칸으로 나누어져 있다. 각각의 칸은 벽 또는 빈 칸이다. 청소기는 바라보는 방향이 있으며, 이 방향은 동, 서, 남, 북 중 하나이다. 방의 각 칸은 좌표 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D45F TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D450 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>r</mi>
+                                <mo>,</mo>
+                                <mi>c</mi>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(r, c)$</span>
+                    </mjx-container>로 나타낼 수 있고, 가장 북쪽 줄의 가장 서쪽 칸의 좌표가 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c30"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="2">
+                                <mjx-c class="mjx-c30"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mn>0</mn>
+                                <mo>,</mo>
+                                <mn>0</mn>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(0, 0)$</span>
+                    </mjx-container>, 가장 남쪽 줄의 가장 동쪽 칸의 좌표가 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D441 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-c2212"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="3">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-c2212"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="3">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>N</mi>
+                                <mo>−</mo>
+                                <mn>1</mn>
+                                <mo>,</mo>
+                                <mi>M</mi>
+                                <mo>−</mo>
+                                <mn>1</mn>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(N-1, M-1)$</span>
+                    </mjx-container>이다. 즉, 좌표 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D45F TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D450 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>r</mi>
+                                <mo>,</mo>
+                                <mi>c</mi>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(r, c)$</span>
+                    </mjx-container>는 북쪽에서 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D45F TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-c2B"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="3">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>r</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(r+1)$</span>
+                    </mjx-container>번째에 있는 줄의 서쪽에서 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D450 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-c2B"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="3">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>c</mi>
+                                <mo>+</mo>
+                                <mn>1</mn>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(c+1)$</span>
+                    </mjx-container>번째 칸을 가리킨다. 처음에 빈 칸은 전부 청소되지 않은 상태이다.</p>
+                <p>로봇 청소기는 다음과 같이 작동한다.</p>
+                <ol>
+                    <li>현재 칸이 아직 청소되지 않은 경우, 현재 칸을 청소한다.</li>
+                    <li>현재 칸의 주변 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                            <mjx-math class="MJX-TEX" aria-hidden="true">
+                                <mjx-mn class="mjx-n">
+                                    <mjx-c class="mjx-c34"></mjx-c>
+                                </mjx-mn>
+                            </mjx-math>
+                            <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mn>4</mn>
+                                </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$4$</span>
+                        </mjx-container>칸 중 청소되지 않은 빈 칸이 없는 경우,
+                        <ol>
+                            <li>바라보는 방향을 유지한 채로 한 칸 후진할 수 있다면 한 칸 후진하고 1번으로 돌아간다.</li>
+                            <li>바라보는 방향의 뒤쪽 칸이 벽이라 후진할 수 없다면 작동을 멈춘다.</li>
+                        </ol>
+                    </li>
+                    <li>현재 칸의 주변 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                            <mjx-math class="MJX-TEX" aria-hidden="true">
+                                <mjx-mn class="mjx-n">
+                                    <mjx-c class="mjx-c34"></mjx-c>
+                                </mjx-mn>
+                            </mjx-math>
+                            <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                    <mn>4</mn>
+                                </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$4$</span>
+                        </mjx-container>칸 중 청소되지 않은 빈 칸이 있는 경우,
+                        <ol>
+                            <li>반시계 방향으로 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                                    <mjx-math class="MJX-TEX" aria-hidden="true">
+                                        <mjx-msup>
+                                            <mjx-mn class="mjx-n">
+                                                <mjx-c class="mjx-c39"></mjx-c>
+                                                <mjx-c class="mjx-c30"></mjx-c>
+                                            </mjx-mn>
+                                            <mjx-script style="vertical-align: 0.393em;">
+                                                <mjx-mo class="mjx-n" size="s">
+                                                    <mjx-c class="mjx-c2218"></mjx-c>
+                                                </mjx-mo>
+                                            </mjx-script>
+                                        </mjx-msup>
+                                    </mjx-math>
+                                    <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                            <msup>
+                                                <mn>90</mn>
+                                                <mo>∘</mo>
+                                            </msup>
+                                        </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$90^\circ$</span>
+                                </mjx-container> 회전한다.</li>
+                            <li>바라보는 방향을 기준으로 앞쪽 칸이 청소되지 않은 빈 칸인 경우 한 칸 전진한다.</li>
+                            <li>1번으로 돌아간다.</li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+        </section>
     </div>
-    <div id="problem_description" class="problem-text">
-        <p>철수의 토마토 농장에서는 토마토를 보관하는 큰 창고를 가지고 있다. 토마토는 아래의 그림과 같이 격자모양 상자의 칸에 하나씩 넣은 다음, 상자들을 수직으로 쌓아 올려서 창고에 보관한다.</p>
-        <p style="text-align: center;"><img alt="" src="https://u.acmicpc.net/c3f3343d-c291-40a9-9fe3-59f792a8cae9/Screen%20Shot%202021-06-22%20at%202.49.11%20PM.png" style="width: 201px; height: 252px;"></p>
-        <p>창고에 보관되는 토마토들 중에는 잘 익은 것도 있지만, 아직 익지 않은 토마토들도 있을 수 있다. 보관 후 하루가 지나면, 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다. 하나의 토마토에 인접한 곳은 위, 아래, 왼쪽, 오른쪽, 앞, 뒤 여섯 방향에 있는 토마토를 의미한다. 대각선 방향에 있는 토마토들에게는 영향을 주지 못하며, 토마토가 혼자 저절로 익는 경우는 없다고 가정한다. 철수는 창고에 보관된 토마토들이 며칠이 지나면 다 익게 되는지 그 최소 일수를 알고 싶어 한다.</p>
-        <p>토마토를 창고에 보관하는 격자모양의 상자들의 크기와 익은 토마토들과 익지 않은 토마토들의 정보가 주어졌을 때, 며칠이 지나면 토마토들이 모두 익는지, 그 최소 일수를 구하는 프로그램을 작성하라. 단, 상자의 일부 칸에는 토마토가 들어있지 않을 수도 있다.</p>
+    <div class="col-md-12">
+        <section id="input" class="problem-section">
+            <div class="headline">
+                <h2>입력</h2>
+            </div>
+            <div id="problem_input" class="problem-text">
+                <p>첫째 줄에 방의 크기 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D441 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>N</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$N$</span>
+                    </mjx-container>과 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>M</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$M$</span>
+                    </mjx-container>이 입력된다. <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c33"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n" space="4">
+                                <mjx-c class="mjx-c2264"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="4">
+                                <mjx-c class="mjx-c1D441 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="4">
+                                <mjx-c class="mjx-c2264"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mn class="mjx-n" space="4">
+                                <mjx-c class="mjx-c35"></mjx-c>
+                                <mjx-c class="mjx-c30"></mjx-c>
+                            </mjx-mn>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mn>3</mn>
+                                <mo>≤</mo>
+                                <mi>N</mi>
+                                <mo>,</mo>
+                                <mi>M</mi>
+                                <mo>≤</mo>
+                                <mn>50</mn>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(3 \le N, M \le 50)$</span>
+                    </mjx-container>  둘째 줄에 처음에 로봇 청소기가 있는 칸의 좌표 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D45F TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D450 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>r</mi>
+                                <mo>,</mo>
+                                <mi>c</mi>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(r, c)$</span>
+                    </mjx-container>와 처음에 로봇 청소기가 바라보는 방향 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D451 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>d</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$d$</span>
+                    </mjx-container>가 입력된다. <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D451 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>d</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$d$</span>
+                    </mjx-container>가 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c30"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>0</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$0$</span>
+                    </mjx-container>인 경우 북쪽, <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>1</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$1$</span>
+                    </mjx-container>인 경우 동쪽, <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c32"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>2</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$2$</span>
+                    </mjx-container>인 경우 남쪽, <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c33"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>3</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$3$</span>
+                    </mjx-container>인 경우 서쪽을 바라보고 있는 것이다.</p>
+                <p>셋째 줄부터 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D441 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>N</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$N$</span>
+                    </mjx-container>개의 줄에 각 장소의 상태를 나타내는 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D441 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n" space="3">
+                                <mjx-c class="mjx-cD7"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="3">
+                                <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>N</mi>
+                                <mo>×</mo>
+                                <mi>M</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$N \times M$</span>
+                    </mjx-container>개의 값이 한 줄에 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>M</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$M$</span>
+                    </mjx-container>개씩 입력된다. <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D456 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>i</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$i$</span>
+                    </mjx-container>번째 줄의 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D457 TEX-I"></mjx-c>
+                            </mjx-mi>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mi>j</mi>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$j$</span>
+                    </mjx-container>번째 값은 칸 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D456 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D457 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>i</mi>
+                                <mo>,</mo>
+                                <mi>j</mi>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(i, j)$</span>
+                    </mjx-container>의 상태를 나타내며, 이 값이 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c30"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>0</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$0$</span>
+                    </mjx-container>인 경우 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D456 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D457 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>i</mi>
+                                <mo>,</mo>
+                                <mi>j</mi>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(i, j)$</span>
+                    </mjx-container>가 청소되지 않은 빈 칸이고, <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mn class="mjx-n">
+                                <mjx-c class="mjx-c31"></mjx-c>
+                            </mjx-mn>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mn>1</mn>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$1$</span>
+                    </mjx-container>인 경우 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
+                        <mjx-math class="MJX-TEX" aria-hidden="true">
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c28"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i">
+                                <mjx-c class="mjx-c1D456 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c2C"></mjx-c>
+                            </mjx-mo>
+                            <mjx-mi class="mjx-i" space="2">
+                                <mjx-c class="mjx-c1D457 TEX-I"></mjx-c>
+                            </mjx-mi>
+                            <mjx-mo class="mjx-n">
+                                <mjx-c class="mjx-c29"></mjx-c>
+                            </mjx-mo>
+                        </mjx-math>
+                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
+                                <mo stretchy="false">(</mo>
+                                <mi>i</mi>
+                                <mo>,</mo>
+                                <mi>j</mi>
+                                <mo stretchy="false">)</mo>
+                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$(i, j)$</span>
+                    </mjx-container>에 벽이 있는 것이다. 방의 가장 북쪽, 가장 남쪽, 가장 서쪽, 가장 동쪽 줄 중 하나 이상에 위치한 모든 칸에는 벽이 있다. 로봇 청소기가 있는 칸은 항상 빈 칸이다.</p>
+            </div>
+        </section>
     </div>
-</section>
-
-<section id="input" class="problem-section">
-    <div class="headline">
-        <h2>입력</h2>
+    <div class="col-md-12">
+        <section id="output" class="problem-section">
+            <div class="headline">
+                <h2>출력</h2>
+            </div>
+            <div id="problem_output" class="problem-text">
+                <p>로봇 청소기가 작동을 시작한 후 작동을 멈출 때까지 청소하는 칸의 개수를 출력한다.</p>
+            </div>
+        </section>
     </div>
-    <div id="problem_input" class="problem-text">
-        <p>첫 줄에는 상자의 크기를 나타내는 두 정수 M,N과 쌓아올려지는 상자의 수를 나타내는 H가 주어진다. M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸다. 단, 2 ≤ M ≤ 100, 2 ≤ N ≤ 100, 1 ≤ H ≤ 100 이다. 둘째 줄부터는 가장 밑의 상자부터 가장 위의 상자까지에 저장된 토마토들의 정보가 주어진다. 즉, 둘째 줄부터 N개의 줄에는 하나의 상자에 담긴 토마토의 정보가 주어진다. 각 줄에는 상자 가로줄에 들어있는 토마토들의 상태가 M개의 정수로 주어진다. 정수 1은 익은 토마토, 정수 0 은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸을 나타낸다. 이러한 N개의 줄이 H번 반복하여 주어진다.</p>
-        <p>토마토가 하나 이상 있는 경우만 입력으로 주어진다.</p>
+    <div class="col-md-12">
+        <section id="limit" style="display:none;" class="problem-section">
+            <div class="headline">
+                <h2>제한</h2>
+            </div>
+            <div id="problem_limit" class="problem-text">
+            </div>
+        </section>
     </div>
-</section>
-
-<section id="output" class="problem-section">
-    <div class="headline">
-        <h2>출력</h2>
-    </div>
-    <div id="problem_output" class="problem-text">
-        <p>여러분은 토마토가 모두 익을 때까지 최소 며칠이 걸리는지를 계산해서 출력해야 한다. 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.</p>
-    </div>
-</section>
-
-<section id="sampleinput1">
-    <div class="headline">
-        <h2>예제 입력 1</h2>
-    </div>
-    <pre class="sampledata" id="sample-input-1">5 3 1
-0 -1 0 0 0
--1 -1 0 1 1
-0 0 0 1 1
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <section id="sampleinput1">
+                    <div class="headline">
+                        <h2>예제 입력 1</h2>
+                    </div>
+                    <pre class="sampledata" id="sample-input-1">3 3
+1 1 0
+1 1 1
+1 0 1
+1 1 1
 </pre>
-</section>
-
-<section id="sampleoutput1">
-    <div class="headline">
-        <h2>예제 출력 1</h2>
-    </div>
-    <pre class="sampledata" id="sample-output-1">-1
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section id="sampleoutput1">
+                    <div class="headline">
+                        <h2>예제 출력 1</h2>
+                    </div>
+                    <pre class="sampledata" id="sample-output-1">1
 </pre>
-</section>
-
-<section id="sampleinput2">
-    <div class="headline">
-        <h2>예제 입력 2</h2>
+                </section>
+            </div>
+        </div>
     </div>
-    <pre class="sampledata" id="sample-input-2">5 3 2
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 0 0 0
-0 0 1 0 0
-0 0 0 0 0
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <section id="sampleinput2">
+                    <div class="headline">
+                        <h2>예제 입력 2</h2>
+                    </div>
+                    <pre class="sampledata" id="sample-input-2">11 10
+7 4 0
+1 1 1 1 1 1 1 1 1 1
+1 0 0 0 0 0 0 0 0 1
+1 0 0 0 1 1 1 1 0 1
+1 0 0 1 1 0 0 0 0 1
+1 0 1 1 0 0 0 0 0 1
+1 0 0 0 0 0 0 0 0 1
+1 0 0 0 0 0 0 1 0 1
+1 0 0 0 0 0 1 1 0 1
+1 0 0 0 0 0 1 1 0 1
+1 0 0 0 0 0 0 0 0 1
+1 1 1 1 1 1 1 1 1 1
 </pre>
-</section>
-
-<section id="sampleoutput2">
-    <div class="headline">
-        <h2>예제 출력 2</h2>
+                </section>
+            </div>
+            <div class="col-md-6">
+                <section id="sampleoutput2">
+                    <div class="headline">
+                        <h2>예제 출력 2</h2>
+                    </div>
+                    <pre class="sampledata" id="sample-output-2">57
+</pre>
+                </section>
+            </div>
+        </div>
     </div>
-    <pre class="sampledata" id="sample-output-2">4
-</pre>
-</section>
-
-<section id="sampleinput3">
-    <div class="headline">
-        <h2>예제 입력 3</h2>
+    <div class="col-md-12">
+        <section id="hint" style="display: none;" class="problem-section">
+            <div class="headline">
+                <h2>힌트</h2>
+            </div>
+            <div id="problem_hint" class="problem-text">
+            </div>
+        </section>
     </div>
-    <pre class="sampledata" id="sample-input-3">4 3 2
-1 1 1 1
-1 1 1 1
-1 1 1 1
-1 1 1 1
--1 -1 -1 -1
-1 1 1 -1
-</pre>
-</section>
-
-<section id="sampleoutput3">
-    <div class="headline">
-        <h2>예제 출력 3</h2>
-    </div>
-    <pre class="sampledata" id="sample-output-3">0
-</pre>
-</section>
+</div>
