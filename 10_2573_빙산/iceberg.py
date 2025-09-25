@@ -34,6 +34,7 @@ def melt():
         for j in range(m):
             graph[i][j] = max(0, graph[i][j]-melt_graph[i][j])
 
+result = []
 year = 0
 while True:
     count = 0
@@ -43,11 +44,12 @@ while True:
             if not visited[i][j] and graph[i][j]>0:
                 bfs(i, j, visited)
                 count += 1
+    result.append(count)
     if count == 0:
         print(0)
         break
     if count >= 2:
         print(year)
-        break
     melt()
     year+=1
+print(result)
