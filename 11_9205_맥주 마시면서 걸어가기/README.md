@@ -77,13 +77,4 @@ sad
             </div>
         </div>
     </div>
-    <div class="col-md-12">
-        <section id="hint" style="display: none;" class="problem-section">
-            <div class="headline">
-                <h2>힌트</h2>
-            </div>
-            <div id="problem_hint" class="problem-text">
-            </div>
-        </section>
-    </div>
 </div>
