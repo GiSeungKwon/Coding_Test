@@ -1,38 +1,33 @@
-N, M = map(int, input().split())
+n, m = map(int, input().split())
 r, c, d = map(int, input().split())
-graph = [list(map(int, input().split())) for _ in range(N)]
+graph = [list(map(int, input().split())) for _ in range(n)]
 
-# 북, 동, 남, 서
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
 count = 0
-
 while True:
-    # 1. 현재 칸 청소
+    # 현재 칸 청소
     if graph[r][c] == 0:
-        graph[r][c] = 2  # 청소됨 표시
+        graph[r][c] = 2
         count += 1
-
-    # 2. 주변 4칸 확인
+    # 북, 동, 남, 서 이동
     moved = False
     for _ in range(4):
-        d = (d + 3) % 4  # 반시계 방향 회전
-        nx, ny = r + dx[d], c + dy[d]
-        if graph[nx][ny] == 0:  # 청소 안 된 빈 칸
-            r, c = nx, ny
+        d = (d+3)%4
+        nr, nc = r + dx[d], c + dy[d]
+        if graph[nr][nc] == 0:
+            r, c = nr, nc
             moved = True
             break
-
+    # 이동 후 청소
     if moved:
         continue
-
-    # 3. 후진
-    back = (d + 2) % 4
-    bx, by = r + dx[back], c + dy[back]
-    if graph[bx][by] == 1:  # 벽이면 종료
+    # 이동 안하면 뒤로
+    bd = (d+2)%4
+    br, bc = r + dx[bd], c + dy[bd]
+    if graph[br][bc] == 1:
         break
-    else:  # 벽이 아니면 후진
-        r, c = bx, by
-
+    else:
+        r, c = br, bc
 print(count)
