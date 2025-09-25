@@ -19,11 +19,7 @@ https://www.acmicpc.net/problem/14503
                                 <mjx-c class="mjx-c1D440 TEX-I"></mjx-c>
                             </mjx-mi>
                         </mjx-math>
-                        <mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML">
-                                <mi>N</mi>
-                                <mo>×</mo>
-                                <mi>M</mi>
-                            </math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$N \times M$</span>
+						<span aria-hidden="true" class="no-mathjax mjx-copytext">$N \times M$</span>
                     </mjx-container> 크기의 직사각형으로 나타낼 수 있으며, <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;">
                         <mjx-math class="MJX-TEX" aria-hidden="true">
                             <mjx-mn class="mjx-n">
