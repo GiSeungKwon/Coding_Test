@@ -1,5 +1,5 @@
 # Coding_Test
-### 1단계_DFS+BFS 필수 문제<br>[DFS+BFS 필수 문제](https://www.acmicpc.net/workbook/view/1983)
+### 1단계_DFS+BFS 필수 문제(https://www.acmicpc.net/workbook/view/1983)
 1. [1260_DFS_BFS](https://github.com/GiSeungKwon/Coding-Test/tree/main/1단계/1_1260_DFS_BFS)
    - [BAEKJOON DFS_BFS](https://www.acmicpc.net/problem/1260)
 2. [2178_미로탐색](https://github.com/GiSeungKwon/Coding-Test/tree/main/1단계/2_2178_%EB%AF%B8%EB%A1%9C%ED%83%90%EC%83%89)
@@ -24,3 +24,9 @@
     - [BAEKJOON 맥주 마시면서 걸어가기](https://www.acmicpc.net/problem/9205)
 12. [14503_로봇 청소기](https://github.com/GiSeungKwon/Coding_Test/tree/main/1단계/12_14503_%EB%A1%9C%EB%B4%87%20%EC%B2%AD%EC%86%8C%EA%B8%B0)
     - [BAEKJOON 로봇 청소기](https://www.acmicpc.net/problem/14503)
+
+### 2단계_삼성 SW 역량 테스트 기출 문제(https://www.acmicpc.net/workbook/view/1152)
+
+### 3단계_코드트리 삼성전자 기출문제(https://www.codetree.ai/ko/frequent-problems/samsung-sw/problems/)
+
+### 4단계_코드트리 삼성전자 기출문제(https://www.codetree.ai/ko/frequent-problems/samsung-sw/problems/)
