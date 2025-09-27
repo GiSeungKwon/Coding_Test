@@ -52,17 +52,15 @@ def bfs(board, N, M, red, blue):
 
 if __name__ == "__main__":
     N, M = map(int, input().split())
-    board = []
+    board = [list(map(int, input().strip())) for _ in range(N)]
     red = blue = None
 
     for i in range(N):
-        row = list(input().strip())
-        board.append(row)
         for j in range(M):
-            if row[j] == 'R':
+            if graoh[i][j] == 'R':
                 red = (i, j)
-                board[i][j] = '.'  # 빈칸 처리
-            elif row[j] == 'B':
+                graoh[i][j] = '.'  # 빈칸 처리
+            elif graoh[i][j] == 'B':
                 blue = (i, j)
                 board[i][j] = '.'
 
