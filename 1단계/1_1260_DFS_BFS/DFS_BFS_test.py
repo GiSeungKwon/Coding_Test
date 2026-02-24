@@ -30,6 +30,7 @@ def dfs(v, visited):
 
 visited_bfs = [False] * (n+1)
 visited_dfs = [False] * (n+1)
+
 bfs(v, visited_bfs)
 print()
 dfs(v, visited_dfs)
