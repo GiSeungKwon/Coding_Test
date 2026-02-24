@@ -83,6 +83,25 @@ https://www.acmicpc.net/problem/2178
     <pre class="sampledata" id="sample-output-1">15</pre>
 </section>
 
+<section id="sampleinput1">
+    <div class="headline">
+        <h2>예제 입력 2</h2>
+    </div>
+    <pre class="sampledata" id="sample-input-1">4 6
+110110
+110110
+111111
+111101
+</pre>
+</section>
+
+<section id="sampleoutput1">
+    <div class="headline">
+        <h2>예제 출력 2</h2>
+    </div>
+    <pre class="sampledata" id="sample-output-1">9</pre>
+</section>
+
 <div class="row">
     <div class="col-md-6">
         <section id="sampleinput3">
