@@ -14,7 +14,7 @@ for i in range(n):
 dy, dx = [1, -1, 0, 0], [0, 0, -1, 1]
 
 #BFS - y, x, move
-queue = deque([(0,0,0)])
+queue = deque([(0,0,1)])
 while queue:
     y, x, move = queue.popleft()
     visited[y][x] = True
