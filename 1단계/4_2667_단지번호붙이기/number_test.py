@@ -36,7 +36,7 @@ for i in range(n):
                             for i in range(n):
                                 print(f"{visited[i]}")
             result.append(count)
-
+print(f"danji_count: {danji_count}")
 print(f"result: {sorted(result)}")
 # 출력
 # 단지수
