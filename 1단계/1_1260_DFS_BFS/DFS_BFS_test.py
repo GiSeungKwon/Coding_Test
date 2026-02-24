@@ -8,6 +8,9 @@ for i in range(m):
     graph[a].append(b)
     graph[b].append(a)
 
+for i in range(n+1):
+    graph[i].sort()
+
 def bfs(v, visited):
     queue = deque()
     queue.append(v)
