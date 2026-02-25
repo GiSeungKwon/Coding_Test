@@ -36,7 +36,6 @@ def solution(m,n,h,graph):
     print(f"queue: {queue}")
     while queue:
         z, y, x, count = queue.popleft()
-        print(f"queue.popleft() -> z:{z}, y:{y}, x:{x}, count:{count}")
         max_count = max(max_count, count)
         for i in range(6):
             nz, ny, nx = z+dz[i], y+dy[i], x+dx[i]
