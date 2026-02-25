@@ -33,15 +33,20 @@ def solution(m,n,h,graph):
                 if graph[z][y][x] == 1:
                     visited[z][y][x] = True
                     queue.append((z,y,x,0))
+    # print(f"queue: {queue}")
     while queue:
         z, y, x, count = queue.popleft()
+        # print(f"queue.popleft() -> z:{z}, y:{y}, x:{x}, count:{count}")
         max_count = max(max_count, count)
         for i in range(6):
             nz, ny, nx = z+dz[i], y+dy[i], x+dx[i]
             if 0<=nz<h and 0<=ny<n and 0<=nx<m and graph[nz][ny][nx] != -1:
                 if not visited[nz][ny][nx]:
                     visited[nz][ny][nx] = True
+                    # print(f"queue.append((nz:{nz}, ny:{ny}, nx:{nx}, count + 1:{count + 1}))")
                     queue.append((nz, ny, nx, count + 1))
+                    # print(f"queue: {queue}")
+                    # print()
     return max_count
 
 print(solution(m,n,h,graph))
