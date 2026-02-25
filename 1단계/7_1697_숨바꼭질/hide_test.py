@@ -14,3 +14,4 @@ while queue:
         break
     for next_node in (now+1, now-1, now*2):
         if 0<=next_node<max and not visited[next_node]:
+            queue.append((next_node, count + 1))
