@@ -17,5 +17,3 @@ def solution(f, s, g, u, d, visited):
                 visited[next_node] = True
                 queue.append((next_node, count + 1))
     return "use the stairs"
-
-print(solution(f, s, g, u, d, visited))
