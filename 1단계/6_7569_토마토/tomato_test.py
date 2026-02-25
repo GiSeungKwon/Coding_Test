@@ -45,8 +45,6 @@ def solution(m,n,h,graph):
                     visited[nz][ny][nx] = True
                     print(f"queue.append((nz:{nz}, ny:{ny}, nx:{nx}, count + 1:{count + 1}))")
                     queue.append((nz, ny, nx, count + 1))
-                    print(f"queue: {queue}")
-                    print()
     return max_count
 
 print(solution(m,n,h,graph))
