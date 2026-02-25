@@ -43,7 +43,6 @@ def solution(m,n,h,graph):
             if 0<=nz<h and 0<=ny<n and 0<=nx<m and graph[nz][ny][nx] != -1:
                 if not visited[nz][ny][nx]:
                     visited[nz][ny][nx] = True
-                    print(f"queue.append((nz:{nz}, ny:{ny}, nx:{nx}, count + 1:{count + 1}))")
                     queue.append((nz, ny, nx, count + 1))
     return max_count
 
