@@ -33,7 +33,6 @@ def solution(m,n,h,graph):
                 if graph[z][y][x] == 1:
                     visited[z][y][x] = True
                     queue.append((z,y,x,0))
-    print(f"queue: {queue}")
     while queue:
         z, y, x, count = queue.popleft()
         max_count = max(max_count, count)
