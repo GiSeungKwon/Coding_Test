@@ -18,4 +18,3 @@ def solution(f, s, g, u, d, visited):
                 queue.append((next_node, count + 1))
     return "use the stairs"
 
-print(solution(f, s, g, u, d, visited))
