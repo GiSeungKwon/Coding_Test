@@ -31,12 +31,14 @@ def bfs(param_graph):
                 queue.append((i, j))
                 visited[i][j] = True
                 y, x = queue.popleft()
-                for k in range(4):
-                    ny, nx = y+dy[k], x+dx[k]
-                    if 0<=ny<n and 0<=nx<m and param_graph[ny][nx] != 0:
-                        if not visited[ny][nx]:
-                            visited[ny][nx] = True
-                            queue.append((ny, nx))
+                while queue:
+                    for k in range(4):
+                        ny, nx = y+dy[k], x+dx[k]
+                        if 0<=ny<n and 0<=nx<m and param_graph[ny][nx] != 0:
+                            if not visited[ny][nx]:
+                                visited[ny][nx] = True
+                                queue.append((ny, nx))
+                count += 1
     return count
 
 print()
