@@ -47,5 +47,4 @@ while 0 < max(map(max, graph)):
         print(f"{year}")
         break
     graph = after_1_year(graph)
-
     year += 1
