@@ -27,23 +27,24 @@ def bfs(param_graph):
     count = 0
     for i in range(n):
         for j in range(m):
-            if param_graph[i][j] != 0:
+            if param_graph[i][j] != 0 and not visited[i][j]:
                 queue.append((i, j))
                 visited[i][j] = True
-                y, x = queue.popleft()
+                count += 1
                 while queue:
+                    y, x = queue.popleft()
                     for k in range(4):
                         ny, nx = y+dy[k], x+dx[k]
                         if 0<=ny<n and 0<=nx<m and param_graph[ny][nx] != 0:
                             if not visited[ny][nx]:
                                 visited[ny][nx] = True
                                 queue.append((ny, nx))
-                count += 1
     return count
 
-print()
-print(graph)
-graph = after_1_year(graph)
-print(bfs(graph))
-print()
-print(graph)
+year = 0
+while 0 < max(map(max, graph)):
+    if 2 <= bfs(graph):
+        print(f"{year}")
+        break
+    graph = after_1_year(graph)
+    year += 1
