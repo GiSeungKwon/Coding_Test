@@ -30,4 +30,3 @@ for _ in range(test_case):
         print("happy")
     else:
         print("sad")
-    print()
