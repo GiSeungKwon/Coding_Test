@@ -36,4 +36,3 @@ while True:
         # 후진할 칸이 벽일 때
         else:
             break
-            d
