@@ -9,8 +9,11 @@ for i in range(n):
 # 북 동 남 서 / dr[d], dc[d] 현재 방향을 나타냄
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
+exit_flag = False
 
 while True:
+    if exit_flag:
+        break
     # 현재 칸 청소 됨?
     if map[r][c] == 0:
         # 현재 칸 청소
@@ -19,11 +22,22 @@ while True:
     # 주변 4칸 탐색
     for i in range(4):
         check_r, check_c = r+dr[i], c+dc[i]
-        # 청소 안된 칸 있음?
+        # 청소 안된 칸 있음
         if map[check_r][check_c] == 0:
             # 반시계 방향 90도
             d = (d + 3) % 4
-            # 앞 칸이 청소 안된 칸이면 전진
+            # 진행 방향 칸이 청소 안된 칸이면 전진
             nr, nc = r+dr[d], c+dc[d]
             if map[nr][nc] == 0:
                 r, c = nr, nc
+                break
+        # 창소 안된 칸 없음
+        else:
+            # 후진 방향
+            d = (d + 2) % 4
+            # 진행 방향 칸이 벽이면
+            nr, nc = r+dr[d], c+dc[d]
+            if map[nr][nc] == 1:
+                exit_flag = True
+                break
+            else:
