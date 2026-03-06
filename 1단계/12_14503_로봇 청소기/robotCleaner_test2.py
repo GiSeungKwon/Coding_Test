@@ -1,39 +1,20 @@
 n, m = map(int, input().split())
-print(f"n:{n}, m:{m}")
 r, c, d = map(int, input().split())
-print(f"r:{r}, c:{c}, d:{d}")
 map = [list(map(int, input().split())) for _ in range(n)]
 count = 0
-print()
-print(f"count: {count}")
-print(f"r:{r}, c:{c}")
-for i in range(n):
-    print(map[i])
-print()
-
 # 북 동 남 서 / dr[d], dc[d] 현재 방향을 나타냄
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
 exit_flag = False
-count = 0
+
 while True:
-
-    count += 1
-    if count == 10:
-        break
-
     if exit_flag:
         break
     # 현재 칸 청소 됨?
     if map[r][c] == 0:
         # 현재 칸 청소
-        map[r][c] = "■"
+        map[r][c] = 2
         count += 1
-        print(f"count: {count}")
-        print(f"r:{r}, c:{c}")
-        for map_row in range(n):
-            print(map[map_row])
-        print()
 
     clean_flag = False
     # 주변 4칸 탐색
@@ -48,18 +29,16 @@ while True:
         d = (d + 3) % 4
         # 진행 방향 칸이 청소 안된 칸이면 전진
         nr, nc = r + dr[d], c + dc[d]
-        if map[nr][nc] == 0:
+        if 0 <= nr < n and 0 <= nc < m and map[nr][nc] == 0:
             r, c = nr, nc
             continue
-
-    # 후진 방향
-    d = (d + 2) % 4
-    nr, nc = r + dr[d], c + dc[d]
-    # 진행 방향 칸이 벽이면
-    if map[nr][nc] == 1:
-        exit_flag = True
-        break
-    # 후진 가능하면
     else:
-        r, c = nr, nc
-        break
+        # 후진 방향
+        nd = (d + 2) % 4
+        nr, nc = r + dr[nd], c + dc[nd]
+        # 진행 방향 칸이 벽이면
+        if 0 <= nr < n and 0 <= nc < m and map[nr][nc] == 1:
+            exit_flag = True
+        # 후진 가능하면
+        else:
+            r, c = nr, nc
