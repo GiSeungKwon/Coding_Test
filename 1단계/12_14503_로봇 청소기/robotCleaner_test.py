@@ -33,6 +33,5 @@ while True:
         if 0 <= nr < n and 0 <= nc < m and map[nr][nc] != 1:
             r, c = nr, nc
         else:
-            print("정지")
             break
 print(count)
