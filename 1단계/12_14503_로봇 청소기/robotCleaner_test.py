@@ -15,8 +15,13 @@ print()
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
 exit_flag = False
-
+count = 0
 while True:
+
+    count += 1
+    if count == 10:
+        break
+
     if exit_flag:
         break
     # 현재 칸 청소 됨?
@@ -33,7 +38,7 @@ while True:
     # 주변 4칸 탐색
     for i in range(4):
         check_r, check_c = r+dr[i], c+dc[i]
-        print(f"check_r:{check_r}, check_c:{check_c}")
+        print(f"i:{i}, check_r:{check_r}, check_c:{check_c}")
         # 청소 안된 칸 있음
         if map[check_r][check_c] == 0:
             print(f"map[{check_r}][{check_c}]: {map[check_r][check_c]} == 0")
@@ -44,8 +49,9 @@ while True:
             if map[nr][nc] == 0:
                 r, c = nr, nc
                 break
-        # 창소 안된 칸 없음
+        # 청소 안된 칸 없음
         else:
+            print(f"map[{check_r}][{check_c}]: {map[check_r][check_c]} == 1")
             # 후진 방향
             d = (d + 2) % 4
             # 진행 방향 칸이 벽이면
