@@ -5,7 +5,7 @@ print(f"r:{r}, c:{c}, d:{d}")
 map = [list(map(int, input().split())) for _ in range(n)]
 for i in range(n):
     print(map[i])
-    print()
+print()
 
 count = 0
 
@@ -22,10 +22,10 @@ while True:
         # 현재 칸 청소
         map[r][c] = "■"
         count += 1
+        print(count)
         for i in range(n):
-            print(count)
             print(map[i])
-            print()
+        print()
 
     # 주변 4칸 탐색
     for i in range(4):
