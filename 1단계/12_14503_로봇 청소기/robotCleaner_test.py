@@ -6,6 +6,7 @@ map = [list(map(int, input().split())) for _ in range(n)]
 for i in range(n):
     print(map[i])
 
+# 북 동 남 서 / dr[d], dc[d] 현재 방향을 나타냄
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
 
