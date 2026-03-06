@@ -5,6 +5,7 @@ print(f"r:{r}, c:{c}, d:{d}")
 map = [list(map(int, input().split())) for _ in range(n)]
 for i in range(n):
     print(map[i])
+    print()
 
 count = 0
 
@@ -22,7 +23,9 @@ while True:
         map[r][c] = "■"
         count += 1
         for i in range(n):
+            print(count)
             print(map[i])
+            print()
 
     # 주변 4칸 탐색
     for i in range(4):
@@ -48,3 +51,4 @@ while True:
             # 후진 가능하면
             else:
                 r, c = nr, nc
+                break
