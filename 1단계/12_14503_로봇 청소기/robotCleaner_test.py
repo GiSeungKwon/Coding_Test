@@ -6,6 +6,8 @@ map = [list(map(int, input().split())) for _ in range(n)]
 for i in range(n):
     print(map[i])
 
+count = 0
+
 # 북 동 남 서 / dr[d], dc[d] 현재 방향을 나타냄
 dr = [-1, 0, 1, 0]
 dc = [0, 1, 0, -1]
@@ -18,6 +20,9 @@ while True:
     if map[r][c] == 0:
         # 현재 칸 청소
         map[r][c] = "■"
+        count += 1
+        for i in range(n):
+            print(map[i])
 
     # 주변 4칸 탐색
     for i in range(4):
@@ -40,4 +45,6 @@ while True:
             if map[nr][nc] == 1:
                 exit_flag = True
                 break
+            # 후진 가능하면
             else:
+                r, c = nr, nc
