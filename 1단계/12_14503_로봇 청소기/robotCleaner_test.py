@@ -26,15 +26,17 @@ while True:
         count += 1
         print(f"count: {count}")
         print(f"r:{r}, c:{c}")
-        for i in range(n):
-            print(map[i])
+        for map_row in range(n):
+            print(map[map_row])
         print()
 
     # 주변 4칸 탐색
     for i in range(4):
         check_r, check_c = r+dr[i], c+dc[i]
+        print(f"check_r:{check_r}, check_c:{check_c}")
         # 청소 안된 칸 있음
         if map[check_r][check_c] == 0:
+            print(f"map[{check_r}][{check_c}]: {map[check_r][check_c]} == 0")
             # 반시계 방향 90도
             d = (d + 3) % 4
             # 진행 방향 칸이 청소 안된 칸이면 전진
