@@ -18,6 +18,11 @@ while True:
             clean_flag = True
     # 청소할 칸이 있다
     if clean_flag:
+        d = (d + 3) % 4
+        nr, nc = r+dr[d], c+dc[d]
+        if 0<=nr<n and 0<=nc<m and map[nr][nc] == 0:
+            r, c = nr, nc
 
     #청소할 칸이 없다
     else:
+        back_d = (d + 2) % 4
