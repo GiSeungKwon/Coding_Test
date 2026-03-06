@@ -18,8 +18,12 @@ while True:
 
     # 주변 4칸 탐색
     for i in range(4):
-        nr, nc = r+dr[i], c+dc[i]
+        check_r, check_c = r+dr[i], c+dc[i]
         # 청소 안된 칸 있음?
-        if map[nr][nc] == 0:
-            # 반시계 방향 90도 회전 후 앞칸이 청소 안된 칸이면 전진
+        if map[check_r][check_c] == 0:
+            # 반시계 방향 90도
             d = (d + 3) % 4
+            # 앞 칸이 청소 안된 칸이면 전진
+            nr, nc = r+dr[d], c+dc[d]
+            if map[nr][nc] == 0:
+                r, c = nr, nc
