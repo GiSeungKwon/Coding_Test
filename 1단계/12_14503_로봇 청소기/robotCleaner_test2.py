@@ -63,29 +63,3 @@ while True:
     else:
         r, c = nr, nc
         break
-
-    # 주변 4칸 탐색
-    for i in range(4):
-        check_r, check_c = r+dr[i], c+dc[i]
-        # 청소 안된 칸 있음
-        if map[check_r][check_c] == 0:
-            # 반시계 방향 90도
-            d = (d + 3) % 4
-            # 진행 방향 칸이 청소 안된 칸이면 전진
-            nr, nc = r+dr[d], c+dc[d]
-            if map[nr][nc] == 0:
-                r, c = nr, nc
-                break
-        # 청소 안된 칸 없음
-        else:
-            # 후진 방향
-            d = (d + 2) % 4
-            nr, nc = r+dr[d], c+dc[d]
-            # 진행 방향 칸이 벽이면
-            if map[nr][nc] == 1:
-                exit_flag = True
-                break
-            # 후진 가능하면
-            else:
-                r, c = nr, nc
-                break
