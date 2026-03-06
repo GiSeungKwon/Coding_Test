@@ -3,11 +3,13 @@ print(f"n:{n}, m:{m}")
 r, c, d = map(int, input().split())
 print(f"r:{r}, c:{c}, d:{d}")
 map = [list(map(int, input().split())) for _ in range(n)]
+count = 0
+print()
+print(f"count: {count}")
+print(f"r:{r}, c:{c}")
 for i in range(n):
     print(map[i])
 print()
-
-count = 0
 
 # 북 동 남 서 / dr[d], dc[d] 현재 방향을 나타냄
 dr = [-1, 0, 1, 0]
@@ -22,7 +24,8 @@ while True:
         # 현재 칸 청소
         map[r][c] = "■"
         count += 1
-        print(count)
+        print(f"count: {count}")
+        print(f"r:{r}, c:{c}")
         for i in range(n):
             print(map[i])
         print()
