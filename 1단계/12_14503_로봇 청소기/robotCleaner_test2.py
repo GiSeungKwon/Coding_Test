@@ -40,3 +40,4 @@ while True:
         elif 0<=back_r<n and 0<=back_c<m and map[back_r][back_c] == 1:
             print("정지")
             break
+print(count)
