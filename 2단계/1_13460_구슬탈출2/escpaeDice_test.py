@@ -11,6 +11,7 @@ for i in range(n):
     for j in range(m):
         if map[i][j] == 'R': red = [i, j]
         elif map[i][j] == 'B': blue = [i, j]
+visited[red[0]][red[1]][blue[0]][blue[1]] = True
 
 def move(r, c, dr, dc):
     count = 0
@@ -39,6 +40,13 @@ while queue:
         if map[next_red_r][next_red_c] == 'O':
             print(count)
             exit()
+        if next_red_r == next_blue_r and next_red_c == next_blue_c:
+            if red_count < blue_count:
+                next_blue_r -= dr[i]
+                next_blue_c -= dc[i]
+            else:
+                next_red_r -= dr[i]
+                next_red_c -= dc[i]
         if not visited[next_red_r][next_red_c][next_blue_r][next_blue_c]:
             visited[next_red_r][next_red_c][next_blue_r][next_blue_c] = True
             queue.append([next_red_r, next_red_c, next_blue_r, next_blue_c, count + 1])
