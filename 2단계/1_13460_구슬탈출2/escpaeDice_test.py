@@ -14,17 +14,12 @@ for i in range(n):
         elif map[i][j] == 'O': O_coord = [i, j]
         elif map[i][j] == 'B': blue_coord = [i, j]
 
-count = 0
-queue = deque()
-queue.append([red_coord[0], red_coord[1], count])
-flag = False
-
 visited = [[[[False] * m for _ in range(n)] for _ in range(m)] for _ in range(n)]
 # 초기 위치 방문 처리
 visited[red_coord[0]][red_coord[1]][blue_coord[0]][blue_coord[1]] = True
 
 queue = deque()
-queue.append([(red_coord[0], red_coord[1], blue_coord[0], blue_coord[1], count)])
+queue.append([red_coord[0], red_coord[1], blue_coord[0], blue_coord[1], 0])
 
 def move(r, c, dr, dc):
     count = 0
