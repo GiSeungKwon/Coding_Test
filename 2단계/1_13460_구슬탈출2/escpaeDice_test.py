@@ -50,4 +50,5 @@ while queue:
         if not visited[next_red_r][next_red_c][next_blue_r][next_blue_c]:
             visited[next_red_r][next_red_c][next_blue_r][next_blue_c] = True
             queue.append([next_red_r, next_red_c, next_blue_r, next_blue_c, count + 1])
+            print(f"queue.append([{next_red_r}, {next_red_c}, {next_blue_r}, {next_blue_c}, {count + 1}]) -> {queue}")
 print(-1)
