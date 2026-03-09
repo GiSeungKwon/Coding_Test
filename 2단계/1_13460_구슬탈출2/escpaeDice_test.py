@@ -49,9 +49,11 @@ while queue:
 
         if nry == nby and nrx == nbx:  # 겹쳤을 때 처리
             if r_cnt > b_cnt:
-                nry -= dr[i]; nrx -= dc[i]
+                nry -= dr[i]
+                nrx -= dc[i]
             else:
-                nby -= dr[i]; nbx -= dc[i]
+                nby -= dr[i]
+                nbx -= dc[i]
 
         if not visited[nry][nrx][nby][nbx]:
             visited[nry][nrx][nby][nbx] = True
