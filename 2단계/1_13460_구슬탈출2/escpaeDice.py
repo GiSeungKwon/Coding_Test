@@ -2,58 +2,40 @@ from collections import deque
 
 n, m = map(int, input().split())
 map = [list(input().strip()) for _ in range(n)]
-# 상하좌우
-dr, dc = [1, -1, 0, 0], [0, 0, 1, -1]
-# R, O, B 좌표 구하기
-red_coord, O_coord, blue_coord = [], [], []
-for i in range(n):
-    for j in range(m):
-        if map[i][j] == 'R': red_coord = [i, j]
-        elif map[i][j] == 'O': O_coord = [i, j]
-        elif map[i][j] == 'B': blue_coord = [i, j]
-
+for i in range(n): print(map[i])
 visited = [[[[False] * m for _ in range(n)] for _ in range(m)] for _ in range(n)]
-# 초기 위치 방문 처리
-visited[red_coord[0]][red_coord[1]][blue_coord[0]][blue_coord[1]] = True
+# 북동남서
+dr, dc = [1, 0, -1, 0], [0, 1, 0, -1]
 
-dist = 0
-queue = deque()
-queue.append([red_coord[0], red_coord[1], blue_coord[0], blue_coord[1], dist])
-
-def move(r, c, dr, dc):
+def move(flag, r, c, dr, dc):
     count = 0
-    while map[r + dr][c + dc] != '#' and map[r][c] != 'O':
+    while map[r + dr][c + dc] != '#' and map[r + dr][c + dc] == 'O':
+        count += 1
         r += dr
         c += dc
-        count += 1
     return r, c, count
 
-# BFS 내부
+red, hole, blue = [], [], []
+for i in range(m):
+    for j in range(n):
+        if map[i][j] == 'R': red = [i, j]
+        elif map[i][j] == 'O': hole = [i, j]
+        elif map[i][j] == 'B': blue = [i, j]
+print(f"red:{red}, hole:{hole}, blue:{blue}")
+visited[red[0]][red[1]][blue[0]][blue[1]] = True
+count = 0
+queue = deque()
+queue.append((red[0], red[1], blue[0], blue[1], count))
 while queue:
-    ry, rx, by, bx, dist = queue.popleft()
-    if dist >= 10: break
-
+    red_r, red_c, blue_r, blue_c, count = queue.popleft()
     for i in range(4):
-        nry, nrx, r_cnt = move(ry, rx, dr[i], dc[i])
-        nby, nbx, b_cnt = move(by, bx, dr[i], dc[i])
-
-        # 파랑 빠지면 무시
-        if map[nby][nbx] == 'O':
+        # red: 1, blue: -1
+        next_red_r, next_red_c, red_count = move(1, red_r, red_c, dr[i], dc[i])
+        next_blue_r, next_blue_c, blue_count = move(-1, blue_r, blue_c, dr[i], dc[i])
+        if map[next_blue_r][next_blue_c] == 'O':
             continue
-
-        # 빨강만 빠지면 성공!
-        if map[nry][nrx] == 'O':
-            print(dist + 1)
+        if map[next_red_r][next_red_c] == 'O':
+            print(count+1)
             exit()
-
-        if nry == nby and nrx == nbx:  # 겹쳤을 때 처리
-            if r_cnt > b_cnt:
-                nry -= dr[i]
-                nrx -= dc[i]
-            else:
-                nby -= dr[i]
-                nbx -= dc[i]
-
-        if not visited[nry][nrx][nby][nbx]:
-            visited[nry][nrx][nby][nbx] = True
-            queue.append((nry, nrx, nby, nbx, dist + 1))
+        if not visited[next_red_r][next_red_c][next_blue_r][next_blue_c]:
+            queue.append((next_red_r, next_red_c, next_blue_r, next_blue_c, count+1))
